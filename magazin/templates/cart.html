@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+<ul class="list-group">
+    {% for item in cart %}
+    <li class="list-group-item row d-flex">
+        <div class="col-md-3">
+            <img src="{{ item.product.image.url }}" width="100" class="img-fluid" alt="rasm">
+        </div>
+        <div class="col-md-9">
+            <h4>Nomi: {{ item.product.name }}</h4>
+            <p>Narxi: {{ item.product.price }}</p>
+            <p>Qiymat: {{ item.product.quantity }}</p>
+            <a href="{% url 'delete-cart' item.id %}" class="btn btn-danger">O'chirish</a>
+        </div>
+    </li>
+    {% endfor %}
+</ul>
+
+<a href="">Buyurtma berish</a>
+
+{% endblock %}
